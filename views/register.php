@@ -1,35 +1,43 @@
-
-<?php include('elements/header.php');?>
-
+<?php include('elements/header.php');?> 
 
 <div class="container">
-	<div class="page-header">
-
-   <h1> the Add User View </h1>
-  </div>
-  <?php if($message){?>
+   <h1>Register</h1>
+  <?php if(isset($message) && $message){?>
     <div class="alert alert-success">
     <button type="button" class="close" data-dismiss="alert">×</button>
-    	<?php echo $message?>
+    	<?php if(isset($message)) echo $message?>
     </div>
   <?php }?>
   <div class="row">
       <div class="span8">
-        <form action="<?php echo BASE_URL?>register/<?php echo $task?>" method="post" onsubmit="editor.post()">
-          <label>First Name</label>
-          <input type="text" class="span6" name="post_fname" value="<?php echo $fname?>">
-					<label>Last Name</label>
-          <input type="text" class="span6" name="post_lname" value="<?php echo $lname?>">
-					<label>Email</label>
-          <input type="text" class="span6" name="post_email" value="<?php echo $email?>">
-					<label>Password</label>
-          <input type="text" class="span6" name="post_password" value="<?php echo $password?>">
-    			<br/>
-          <input type="hidden" name="uID" value="<?php echo $uID?>"/>
-          <button id="submit" type="submit" class="btn btn-primary" >Submit</button>
-        </form>
+        <form action="<?php echo BASE_URL?>register/addUser<?php if(isset($task)) echo $task ?>" method="post" onsubmit="editor.post()">
+          <fieldset>
+			<legend>Register Today!</legend>
+			<label for="first_name">First Name: <font color="#FF0000">*</font></label>
+			<input id="first_name" name="first_name" value="" maxlength="20" required="first_name" type="text">
+			<br>
+						
+			<label for="last_name">Last Name: <font color="#FF0000">*</font></label>
+			<input class="txt" id="last_name" name="last_name" value="" maxlength="20" required="last_name" type="text">
+			<br>
+			 
+			<label for="email">E-mail Address: <font color="#FF0000">*</font></label>
+			<input class="txt" id="email" name="email" value="" maxlength="100" required="email" type="text">
+			<br>
 
+			<label for="password">Password: <font color="#FF0000">*</font></label>
+			<input class="txt" id="password" name="password" value="" maxlength="100" required="password" type="password">
+
+			<br>
+
+			<input name="uID" value="" type="hidden">
+			 
+			<button id="submit" type="submit" class="btn btn-primary">Sign Up</button>
+			</fieldset>
+        </form>
+		<a href="<?php echo BASE_URL; ?>">Back to home page</a>
       </div>
     </div>
 </div>
 <?php include('elements/admin_footer.php');?>
+

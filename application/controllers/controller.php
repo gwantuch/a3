@@ -14,9 +14,9 @@ class Controller {
 				}else{
 					$this->defaultTask();
 				}
-
 				$this->load->view($view.'.php', $this->data);
 	}
+
 	public function runTask($method, $parameters = null){
 		
 		if($method && method_exists($this, $method)) {
@@ -25,13 +25,24 @@ class Controller {
 					if(!is_array($parameters)){
 						$parameters = array();
 					}
-          call_user_func_array(array($this, $method), $parameters);  
+		
+          call_user_func_array(array($this, $method), $parameters); 
+		  
      	}
+	
 	}
+	
+
 	public function defaultTask(){
 	
 	}
-	public function set($key, $value){	
-		$this->data[$key] = $value;	
+	
+	public function set($key, $value){
+		
+		$this->data[$key] = $value;
+		
 	}
+
+
+
 }
