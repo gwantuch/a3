@@ -10,11 +10,7 @@ class Model {
 		
 		try{
 			
-			//PDO
-			//$this->db = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME,DB_USER, DB_PASS);
-			
-			
-			//ADOdb
+
 			$this->db = NewADOConnection('mysqli');
 			$this->db->connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 			
